@@ -1,0 +1,19 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="GovEventer.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DefaultConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=|DataDirectory|MainDb.sdf;Persist Security Info=False;&lt;/ConnectionString&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=|DataDirectory|MainDb.sdf;Persist Security Info=False;</Value>
+    </Setting>
+    <Setting Name="UploadDirPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">~/Content/Uploads</Value>
+    </Setting>
+    <Setting Name="DefaultImagePath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Content/defaultimage.jpg</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

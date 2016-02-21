@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Event>
+@{
+    ViewBag.Title = ViewBag.Category == null ? "Anasayfa" : ViewBag.Category.Name;
+}
+<div id="maiPage">
+    <div id="dpMain" data-date="@ViewBag.SelectedDate.ToString("dd.MM.yyyy")" data-date-format="dd.mm.yyyy"></div>
+    <div class="events">
+        @foreach (var e in Model)
+        {
+            <div class="event">
+                <h3>
+                    <a href="~/@e.Slug">@e.Name</a> <small>
+                        <a href="~/@e.Category.Slug">@e.Category.Name</a>
+                    </small>
+                    <span class="pull-right">@e.EventDate.ToString("t")</span>
+                </h3>
+                <p>
+                    <img src="@Url.Content(e.GetImagePath(EntityImageFormat.Icon))" class="img-responsive img-thumbnail" alt=""/>
+                    @e.ShortDescription
+                </p>
+            </div>
+            <div class="clearfix"></div>
+        }
+    </div>
+</div>
+

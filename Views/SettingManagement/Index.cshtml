@@ -1,0 +1,25 @@
+﻿@model Dictionary<SettingKey, string>
+@{
+    ViewBag.Title = "Ayar Yönetimi";
+}
+
+<h2>Ayar Yönetimi</h2>
+
+@foreach (var item in GeneralExtensions.GetEnumList<SettingKey>())
+{
+    using (Html.BeginForm("Save", "SettingManagement", FormMethod.Post))
+    {
+        <div class="row form-group">
+            @Html.Hidden("key", item.Key)
+            <div class="col-md-2">
+                @Html.Label("value" + item.Key, item.Value, new { @class = "control-label" })
+            </div>
+            <div class="col-md-3">
+                @Html.TextBox("value", Model.ContainsKey(item.Key) ? Model[item.Key] : "", new {id = "value" + item.Key, @class = "form-control"})
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-success" type="submit">Kaydet</button>
+            </div>
+        </div>
+    }
+}

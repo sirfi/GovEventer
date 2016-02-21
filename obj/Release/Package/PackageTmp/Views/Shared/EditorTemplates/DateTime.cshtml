@@ -1,0 +1,24 @@
+﻿@model DateTime?
+@{
+    var value = new DateTimeViewModel(Model);
+}
+<div class="datetimewrapper">
+    <div class="col-xs-2">
+        @Html.DropDownList("Day", new SelectList(Enumerable.Range(1, 31), value.Day), "Gün", new {@class = "select2-general", data_val = false})
+    </div>
+    <div class="col-xs-2">
+        @Html.DropDownList("Month", new SelectList(Enumerable.Range(1, 12), value.Month), "Ay", new {@class = "select2-general", data_val = false})
+    </div>
+    <div class="col-xs-2">
+        @Html.DropDownList("Year", new SelectList(Enumerable.Range(0, 200).Select(x => x + DateTime.Now.Year - 99), value.Year), "Yıl", new {@class = "select2-general", data_val = false})
+    </div>
+    <div class="col-xs-2">
+        @Html.DropDownList("Hour", new SelectList(Enumerable.Range(0, 24), value.Hour), "Saat", new {@class = "select2-general", data_val = false})
+    </div>
+    <div class="col-xs-2">
+        @Html.DropDownList("Minute", new SelectList(Enumerable.Range(0, 60), value.Minute), "Dakika", new { @class = "select2-general", data_val = false })
+    </div>
+    <div class="col-xs-2">
+        @Html.DropDownList("Second", new SelectList(Enumerable.Range(0, 60), value.Second), "Saniye", new { @class = "select2-general", data_val = false })
+    </div>
+</div>

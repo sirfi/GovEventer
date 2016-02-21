@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - @SettingKey.SiteName.Get()</title>
+    @Html.Partial("_Css")
+</head>
+<body>
+    @Html.Partial("_Navbar")
+
+    <div class="container bg-transparent">
+        <div class="row">
+            <div class="col-md-12">
+                @RenderBody()
+                <div class="clearfix"></div>
+                <div id="pageEmptyFiller"></div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_Footer")
+    @Html.Partial("_Js")
+    @Html.RenderScripts()
+</body>
+</html>

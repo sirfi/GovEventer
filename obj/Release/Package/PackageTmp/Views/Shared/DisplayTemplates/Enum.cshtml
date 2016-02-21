@@ -1,0 +1,18 @@
+﻿@model Enum
+@if (EnumHelper.IsValidForEnumHelper(ViewData.ModelMetadata))
+{
+    string displayName = null;
+    foreach (var sli in EnumHelper.GetSelectList(ViewData.ModelMetadata, Model).Where(sli => sli.Selected))
+    {
+        displayName = sli.Text ?? sli.Value;
+    }
+    if (string.IsNullOrEmpty(displayName))
+    {
+        displayName = Model == null ? string.Empty : Model.ToString();
+    }
+    @Html.DisplayTextFor(model => displayName)
+}
+else
+{
+    @Html.DisplayTextFor(model => model)
+}

@@ -1,0 +1,48 @@
+﻿ <!-- Fixed navbar -->
+<nav class="navbar navbar-custom navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainnavbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Aç Kapa</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="~/">@SettingKey.SiteName.Get()</a>
+        </div>
+        <div id="mainnavbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="~/">Anasayfa</a></li>
+                <li><a href="~/hakkimizda">Hakkımızda</a></li>
+                <li><a href="~/iletisim">İletişim</a></li>
+                @if (ViewBag.DataUser != null && ViewBag.DataUser.IsAdmin)
+                {
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Yönetim <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Index", "ContentCategoryManagement")">İçerik Kategorileri</a></li>
+                            <li><a href="@Url.Action("Index", "ContentManagement")">İçerikler</a></li>
+                            <li><a href="@Url.Action("Index", "EventCategoryManagement")">Etkinlik Kategorileri</a></li>
+                            <li><a href="@Url.Action("Index", "EventManagement")">Etkinlikler</a></li>
+                            <li><a href="@Url.Action("Index", "UserManagement")">Kullanıcılar</a></li>
+                            <li><a href="@Url.Action("Index", "SettingManagement")">Ayarlar</a></li>
+                        </ul>
+                    </li>
+                }
+            </ul>
+            @if (Request.IsAuthenticated)
+            {
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">@ViewBag.DataUser.FullName</a></li>
+                    <li><a href="@Url.Action("Logout", "User")">Çıkış Yap</a></li>
+                </ul>
+            }
+            else
+            {
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Giriş Yap", "Login", "User")</li>
+                </ul>
+            }
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>

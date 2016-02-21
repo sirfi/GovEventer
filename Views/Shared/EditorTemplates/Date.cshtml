@@ -1,0 +1,15 @@
+﻿@model DateTime?
+@{
+    var value = new DateTimeViewModel(Model);
+}
+<div class="">
+    <div class="form-group col-xs-4">
+        @Html.DropDownList("Day", new SelectList(Enumerable.Range(1, 31), value.Day), "Gün", new { @class = "select2-general", data_val = false })
+    </div>
+    <div class="form-group col-xs-4">
+        @Html.DropDownList("Month", new SelectList(Enumerable.Range(1, 12), value.Month), "Ay", new { @class = "select2-general", data_val = false })
+    </div>
+    <div class="form-group col-xs-4">
+        @Html.DropDownList("Year", new SelectList(Enumerable.Range(0, 200).Select(x => x + DateTime.Now.Year - 99), value.Year), "Yıl", new { @class = "select2-general", data_val = false })
+    </div>
+</div>

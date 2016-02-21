@@ -1,0 +1,874 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6B94EDF4-DE69-4EF7-968F-209ABE38F8C4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GovEventer</RootNamespace>
+    <AssemblyName>GovEventer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServerCompact, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.SqlServerCompact.6.1.3\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\MainDb.sdf" />
+    <Content Include="Content\Css\Main.css" />
+    <Content Include="Content\Css\Paletton.css" />
+    <Content Include="Content\defaultimage.jpg" />
+    <Content Include="Content\Images\bg.jpg" />
+    <Content Include="Content\Js\Main.js" />
+    <Content Include="Content\Plugins\bootbox\bootbox.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\css\datepicker.css" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.bg.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.ca.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.cs.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.da.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.de.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.el.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.es.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.fi.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.fr.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.he.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.hr.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.id.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.is.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.it.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.ja.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.kr.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.lt.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.lv.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.ms.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.nb.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.nl.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.pl.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.pt-BR.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.pt.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.ro.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.rs-latin.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.rs.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.ru.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.sk.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.sl.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.sv.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.sw.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.th.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.tr.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.uk.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.zh-CN.js" />
+    <Content Include="Content\Plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.zh-TW.js" />
+    <Content Include="Content\Plugins\Bootstrap-Image-Gallery\css\bootstrap-image-gallery.css" />
+    <Content Include="Content\Plugins\Bootstrap-Image-Gallery\css\bootstrap-image-gallery.min.css" />
+    <Content Include="Content\Plugins\Bootstrap-Image-Gallery\css\demo.css" />
+    <Content Include="Content\Plugins\Bootstrap-Image-Gallery\img\loading.gif" />
+    <Content Include="Content\Plugins\Bootstrap-Image-Gallery\index.html" />
+    <Content Include="Content\Plugins\Bootstrap-Image-Gallery\js\bootstrap-image-gallery.js" />
+    <Content Include="Content\Plugins\Bootstrap-Image-Gallery\js\bootstrap-image-gallery.min.js" />
+    <Content Include="Content\Plugins\Bootstrap-Image-Gallery\js\demo.js" />
+    <Content Include="Content\Plugins\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Content\Plugins\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Content\Plugins\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\Plugins\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\Plugins\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Plugins\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\Plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\Plugins\emoticons\lib\emoticons.js" />
+    <Content Include="Content\Plugins\emoticons\lib\emoticons.old.js" />
+    <Content Include="Content\Plugins\emoticons\lib\jquery.emoticons.js" />
+    <Content Include="Content\Plugins\emoticons\support\skype\emoticons.css" />
+    <Content Include="Content\Plugins\emoticons\support\skype\emoticons.png" />
+    <Content Include="Content\Plugins\FileMan\css\images\animated-overlay.gif" />
+    <Content Include="Content\Plugins\FileMan\css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\Plugins\FileMan\css\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\Plugins\FileMan\css\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\Plugins\FileMan\css\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\Plugins\FileMan\css\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\Plugins\FileMan\css\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\Plugins\FileMan\css\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\Plugins\FileMan\css\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\Plugins\FileMan\css\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\Plugins\FileMan\css\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\Plugins\FileMan\css\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\Plugins\FileMan\css\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\Plugins\FileMan\css\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\Plugins\FileMan\css\jquery-ui-1.10.4.custom.css" />
+    <Content Include="Content\Plugins\FileMan\css\jquery-ui-1.10.4.custom.min.css" />
+    <Content Include="Content\Plugins\FileMan\css\main.css" />
+    <Content Include="Content\Plugins\FileMan\css\main.min.css" />
+    <Content Include="Content\Plugins\FileMan\dev.html" />
+    <Content Include="Content\Plugins\FileMan\images\action-folder-paste.png" />
+    <Content Include="Content\Plugins\FileMan\images\action-folder-rename.png" />
+    <Content Include="Content\Plugins\FileMan\images\arrow_down.png" />
+    <Content Include="Content\Plugins\FileMan\images\arrow_up.png" />
+    <Content Include="Content\Plugins\FileMan\images\blank.gif" />
+    <Content Include="Content\Plugins\FileMan\images\copy.png" />
+    <Content Include="Content\Plugins\FileMan\images\cut.png" />
+    <Content Include="Content\Plugins\FileMan\images\dir-minus.png" />
+    <Content Include="Content\Plugins\FileMan\images\dir-plus.png" />
+    <Content Include="Content\Plugins\FileMan\images\file-add.png" />
+    <Content Include="Content\Plugins\FileMan\images\file-delete.png" />
+    <Content Include="Content\Plugins\FileMan\images\file-download.png" />
+    <Content Include="Content\Plugins\FileMan\images\file-duplicate.png" />
+    <Content Include="Content\Plugins\FileMan\images\file-upload.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_3gp.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_7z.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_ace.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_ai.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_aif.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_aiff.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_amr.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_asf.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_asx.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_bat.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_bin.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_bmp.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_bup.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_cab.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_cbr.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_cda.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_cdl.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_cdr.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_chm.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_dat.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_divx.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_dll.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_dmg.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_doc.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_dss.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_dvf.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_dwg.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_eml.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_eps.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_exe.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_fla.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_flv.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_gif.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_gz.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_hqx.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_htm.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_html.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_ifo.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_indd.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_iso.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_jar.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_jpeg.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_jpg.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_lnk.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_log.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_m4a.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_m4b.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_m4p.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_m4v.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_mcd.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_mdb.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_mid.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_mov.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_mp2.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_mp4.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_mpeg.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_mpg.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_msi.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_mswmm.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_ogg.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_pdf.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_png.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_pps.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_ps.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_psd.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_pst.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_ptb.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_pub.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_qbb.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_qbw.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_qxd.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_ram.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_rar.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_rm.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_rmvb.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_rtf.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_sea.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_ses.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_sit.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_sitx.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_ss.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_swf.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_tgz.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_thm.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_tif.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_tmp.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_torrent.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_ttf.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_txt.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_vcd.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_vob.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_wav.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_wma.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_wmv.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_wps.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_xls.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_xpi.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\file_extension_zip.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\big\unknown.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_3gp.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_7z.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_ace.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_ai.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_aif.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_aiff.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_amr.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_asf.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_asx.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_bat.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_bin.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_bmp.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_bup.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_cab.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_cbr.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_cda.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_cdl.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_cdr.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_chm.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_dat.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_divx.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_dll.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_dmg.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_doc.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_dss.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_dvf.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_dwg.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_eml.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_eps.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_exe.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_fla.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_flv.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_gif.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_gz.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_hqx.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_htm.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_html.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_ifo.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_indd.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_iso.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_jar.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_jpeg.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_jpg.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_lnk.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_log.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_m4a.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_m4b.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_m4p.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_m4v.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_mcd.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_mdb.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_mid.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_mov.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_mp2.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_mp4.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_mpeg.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_mpg.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_msi.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_mswmm.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_ogg.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_pdf.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_png.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_pps.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_ps.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_psd.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_pst.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_ptb.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_pub.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_qbb.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_qbw.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_qxd.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_ram.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_rar.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_rm.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_rmvb.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_rtf.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_sea.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_ses.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_sit.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_sitx.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_ss.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_swf.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_tgz.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_thm.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_tif.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_tmp.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_torrent.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_ttf.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_txt.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_vcd.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_vob.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_wav.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_wma.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_wmv.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_wps.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_xls.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_xpi.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\file_extension_zip.png" />
+    <Content Include="Content\Plugins\FileMan\images\filetypes\unknown.png" />
+    <Content Include="Content\Plugins\FileMan\images\find.png" />
+    <Content Include="Content\Plugins\FileMan\images\folder-add.png" />
+    <Content Include="Content\Plugins\FileMan\images\folder-delete.png" />
+    <Content Include="Content\Plugins\FileMan\images\folder-download.png" />
+    <Content Include="Content\Plugins\FileMan\images\folder-green.png" />
+    <Content Include="Content\Plugins\FileMan\images\folder-opened.png" />
+    <Content Include="Content\Plugins\FileMan\images\folder.png" />
+    <Content Include="Content\Plugins\FileMan\images\loading-dir.gif" />
+    <Content Include="Content\Plugins\FileMan\images\loading.gif" />
+    <Content Include="Content\Plugins\FileMan\images\paste.png" />
+    <Content Include="Content\Plugins\FileMan\images\preview.png" />
+    <Content Include="Content\Plugins\FileMan\images\rename.png" />
+    <Content Include="Content\Plugins\FileMan\images\search.png" />
+    <Content Include="Content\Plugins\FileMan\images\select.png" />
+    <Content Include="Content\Plugins\FileMan\images\upload-big.png" />
+    <Content Include="Content\Plugins\FileMan\images\view-list.png" />
+    <Content Include="Content\Plugins\FileMan\images\view-tile.png" />
+    <Content Include="Content\Plugins\FileMan\index.html" />
+    <Content Include="Content\Plugins\FileMan\js\custom.js" />
+    <Content Include="Content\Plugins\FileMan\js\directory.js" />
+    <Content Include="Content\Plugins\FileMan\js\file.js" />
+    <Content Include="Content\Plugins\FileMan\js\filetypes.js" />
+    <Content Include="Content\Plugins\FileMan\js\jquery-1.10.2.min.js" />
+    <Content Include="Content\Plugins\FileMan\js\jquery-2.1.4.min.js" />
+    <Content Include="Content\Plugins\FileMan\js\jquery-dateFormat.min.js" />
+    <Content Include="Content\Plugins\FileMan\js\jquery-ui-1.10.4.custom.min.js" />
+    <Content Include="Content\Plugins\FileMan\js\main.js" />
+    <Content Include="Content\Plugins\FileMan\js\main.min.js" />
+    <Content Include="Content\Plugins\FileMan\js\mini-main.js" />
+    <Content Include="Content\Plugins\FileMan\js\tiny_mce_popup.js" />
+    <Content Include="Content\Plugins\FileMan\js\utils.js" />
+    <Content Include="Content\Plugins\FileMan\LICENSE.txt" />
+    <Content Include="Content\Plugins\Gallery\css\blueimp-gallery-indicator.css" />
+    <Content Include="Content\Plugins\Gallery\css\blueimp-gallery-video.css" />
+    <Content Include="Content\Plugins\Gallery\css\blueimp-gallery.css" />
+    <Content Include="Content\Plugins\Gallery\css\blueimp-gallery.min.css" />
+    <Content Include="Content\Plugins\Gallery\css\demo.css" />
+    <Content Include="Content\Plugins\Gallery\img\error.png" />
+    <Content Include="Content\Plugins\Gallery\img\error.svg" />
+    <Content Include="Content\Plugins\Gallery\img\loading.gif" />
+    <Content Include="Content\Plugins\Gallery\img\play-pause.png" />
+    <Content Include="Content\Plugins\Gallery\img\play-pause.svg" />
+    <Content Include="Content\Plugins\Gallery\img\video-play.png" />
+    <Content Include="Content\Plugins\Gallery\img\video-play.svg" />
+    <Content Include="Content\Plugins\Gallery\index.html" />
+    <Content Include="Content\Plugins\Gallery\js\blueimp-gallery-fullscreen.js" />
+    <Content Include="Content\Plugins\Gallery\js\blueimp-gallery-indicator.js" />
+    <Content Include="Content\Plugins\Gallery\js\blueimp-gallery-video.js" />
+    <Content Include="Content\Plugins\Gallery\js\blueimp-gallery-vimeo.js" />
+    <Content Include="Content\Plugins\Gallery\js\blueimp-gallery-youtube.js" />
+    <Content Include="Content\Plugins\Gallery\js\blueimp-gallery.js" />
+    <Content Include="Content\Plugins\Gallery\js\blueimp-gallery.min.js" />
+    <Content Include="Content\Plugins\Gallery\js\blueimp-helper.js" />
+    <Content Include="Content\Plugins\Gallery\js\demo.js" />
+    <Content Include="Content\Plugins\Gallery\js\jquery.blueimp-gallery.js" />
+    <Content Include="Content\Plugins\Gallery\js\jquery.blueimp-gallery.min.js" />
+    <Content Include="Content\Plugins\jquery-slugify\jquery.slugify.js" />
+    <Content Include="Content\Plugins\jquery\js\jquery.js" />
+    <Content Include="Content\Plugins\moment\moment-with-locales.js" />
+    <Content Include="Content\Plugins\select2\select2-bootstrap.css" />
+    <Content Include="Content\Plugins\select2\select2-spinner.gif" />
+    <Content Include="Content\Plugins\select2\select2.css" />
+    <Content Include="Content\Plugins\select2\select2.js" />
+    <Content Include="Content\Plugins\select2\select2.min.js" />
+    <Content Include="Content\Plugins\select2\select2.png" />
+    <Content Include="Content\Plugins\select2\select2x2.png" />
+    <Content Include="Content\Plugins\select2\select2_locale_ar.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_az.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_bg.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_ca.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_cs.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_da.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_de.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_el.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_es.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_et.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_eu.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_fa.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_fi.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_fr.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_gl.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_he.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_hr.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_hu.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_id.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_is.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_it.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_ja.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_ka.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_ko.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_lt.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_lv.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_mk.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_ms.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_nb.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_nl.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_pl.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_pt-BR.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_pt-PT.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_ro.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_rs.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_ru.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_sk.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_sv.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_th.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_tr.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_ug-CN.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_uk.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_vi.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_zh-CN.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_zh-TW.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\ar.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\ar_SA.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\az.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\be.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\bg_BG.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\bn_BD.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\bs.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\ca.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\cs.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\cy.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\da.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\de.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\de_AT.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\dv.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\el.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\en_CA.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\en_GB.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\es.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\es_MX.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\et.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\eu.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\fa.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\fa_IR.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\fi.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\fo.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\fr_FR.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\gd.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\gl.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\he_IL.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\hr.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\hu_HU.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\hy.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\id.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\is_IS.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\it.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\ja.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\ka_GE.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\kk.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\km_KH.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\ko_KR.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\ku.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\ku_IQ.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\lb.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\lt.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\lv.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\ml.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\ml_IN.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\mn_MN.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\nb_NO.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\nl.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\pl.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\pt_BR.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\pt_PT.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\ro.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\ru.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\si_LK.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\sk.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\sl_SI.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\sr.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\sv_SE.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\ta.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\ta_IN.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\tg.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\th_TH.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\tr_TR.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\tt.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\ug.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\uk.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\uk_UA.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\vi.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\vi_VN.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\zh_CN.js" />
+    <Content Include="Content\Plugins\TinyMCE\langs\zh_TW.js" />
+    <Content Include="Content\Plugins\TinyMCE\license.txt" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\advlist\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\anchor\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\autolink\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\autoresize\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\autosave\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\bbcode\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\charmap\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\code\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\colorpicker\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\contextmenu\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\directionality\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emmet\.gitignore" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emmet\css\codemirror.css" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emmet\css\codemirror.min.css" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emmet\editor.html" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emmet\Gruntfile.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emmet\index.html" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emmet\js\codemirror\codemirror.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emmet\js\codemirror\src\codemirror.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emmet\js\codemirror\src\css.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emmet\js\codemirror\src\htmlmixed.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emmet\js\codemirror\src\javascript.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emmet\js\codemirror\src\xml.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emmet\js\emmet\emmet-extras.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emmet\js\emmet\emmet-full.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emmet\js\emmet\src\editor.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emmet\js\emmet\src\emmet.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emmet\js\emmet\src\formatting.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emmet\js\emmet\src\init.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emmet\plugin.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emmet\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emoticons\img\smiley-cool.gif" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emoticons\img\smiley-cry.gif" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emoticons\img\smiley-embarassed.gif" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emoticons\img\smiley-foot-in-mouth.gif" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emoticons\img\smiley-frown.gif" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emoticons\img\smiley-innocent.gif" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emoticons\img\smiley-kiss.gif" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emoticons\img\smiley-laughing.gif" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emoticons\img\smiley-money-mouth.gif" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emoticons\img\smiley-sealed.gif" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emoticons\img\smiley-smile.gif" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emoticons\img\smiley-surprised.gif" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emoticons\img\smiley-tongue-out.gif" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emoticons\img\smiley-undecided.gif" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emoticons\img\smiley-wink.gif" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emoticons\img\smiley-yell.gif" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emoticons\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\example\dialog.html" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\example\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\example_dependency\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\fullpage\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\fullscreen\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\hr\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\image\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\importcss\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\layer\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\link\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\lists\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\media\moxieplayer.swf" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\media\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\noneditable\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\pagebreak\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\paste\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\preview\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\print\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\save\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\searchreplace\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\spellchecker\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\tabfocus\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\table\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\template\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\textcolor\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\textpattern\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\visualblocks\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\visualchars\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\wordcount\plugin.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\skins\lightgray\content.inline.min.css" />
+    <Content Include="Content\Plugins\TinyMCE\skins\lightgray\content.min.css" />
+    <Content Include="Content\Plugins\TinyMCE\skins\lightgray\fonts\tinymce-small.svg" />
+    <Content Include="Content\Plugins\TinyMCE\skins\lightgray\fonts\tinymce.svg" />
+    <Content Include="Content\Plugins\TinyMCE\skins\lightgray\img\anchor.gif" />
+    <Content Include="Content\Plugins\TinyMCE\skins\lightgray\img\loader.gif" />
+    <Content Include="Content\Plugins\TinyMCE\skins\lightgray\img\object.gif" />
+    <Content Include="Content\Plugins\TinyMCE\skins\lightgray\img\trans.gif" />
+    <Content Include="Content\Plugins\TinyMCE\skins\lightgray\skin.ie7.min.css" />
+    <Content Include="Content\Plugins\TinyMCE\skins\lightgray\skin.min.css" />
+    <Content Include="Content\Plugins\TinyMCE\themes\modern\theme.min.js" />
+    <Content Include="Content\Plugins\TinyMCE\tinymce.min.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Plugins\bootstrap\config.json" />
+    <Content Include="Content\Plugins\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Plugins\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Plugins\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Plugins\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\Plugins\Bootstrap-Image-Gallery\js\bootstrap-image-gallery.min.js.map" />
+    <Content Include="Content\Plugins\Bootstrap-Image-Gallery\README.md" />
+    <Content Include="Content\Plugins\emoticons\support\skype\emoticons.json" />
+    <Content Include="Content\Plugins\FileMan\asp_net\RoxyFilemanHandler.ashx" />
+    <Content Include="Content\Plugins\FileMan\conf.json" />
+    <Content Include="Content\Plugins\FileMan\js\fileman-modified.zip" />
+    <Content Include="Content\Plugins\FileMan\js\main.min.js.map" />
+    <Content Include="Content\Plugins\FileMan\lang\bg.json" />
+    <Content Include="Content\Plugins\FileMan\lang\de.json" />
+    <Content Include="Content\Plugins\FileMan\lang\en.json" />
+    <Content Include="Content\Plugins\FileMan\lang\fr.json" />
+    <Content Include="Content\Plugins\FileMan\lang\tr.json" />
+    <Content Include="Content\Plugins\Gallery\README.md" />
+    <None Include="Content\Plugins\jquery-validate\jquery.validate-vsdoc.js" />
+    <Content Include="Content\Plugins\jquery-validate\jquery.validate.js" />
+    <Content Include="Content\Plugins\jquery-validate\jquery.validate.min.js" />
+    <Content Include="Content\Plugins\jquery-validate\jquery.validate.unobtrusive.js" />
+    <Content Include="Content\Plugins\jquery-validate\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Content\Plugins\select2\select2.jquery.json" />
+    <Content Include="Content\Plugins\select2\select2_locale_en.js.template" />
+    <Content Include="Content\Plugins\TinyMCE\langs\readme.md" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emmet\.jshintrc" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emmet\LICENSE" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emmet\package.json" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emmet\plugin.min.js.map" />
+    <Content Include="Content\Plugins\TinyMCE\plugins\emmet\README.md" />
+    <Content Include="Content\Plugins\TinyMCE\skins\lightgray\fonts\tinymce-small.eot" />
+    <Content Include="Content\Plugins\TinyMCE\skins\lightgray\fonts\tinymce-small.ttf" />
+    <Content Include="Content\Plugins\TinyMCE\skins\lightgray\fonts\tinymce-small.woff" />
+    <Content Include="Content\Plugins\TinyMCE\skins\lightgray\fonts\tinymce.eot" />
+    <Content Include="Content\Plugins\TinyMCE\skins\lightgray\fonts\tinymce.ttf" />
+    <Content Include="Content\Plugins\TinyMCE\skins\lightgray\fonts\tinymce.woff" />
+    <None Include="Properties\PublishProfiles\local.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Views\General\Index.cshtml" />
+    <Content Include="Views\Shared\_Css.cshtml" />
+    <Content Include="Views\Shared\_Js.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_Navbar.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\ContentCategoryManagement\Create.cshtml" />
+    <Content Include="Views\ContentCategoryManagement\Edit.cshtml" />
+    <Content Include="Views\ContentCategoryManagement\Index.cshtml" />
+    <Content Include="Views\ContentManagement\Create.cshtml" />
+    <Content Include="Views\ContentManagement\Details.cshtml" />
+    <Content Include="Views\ContentManagement\Edit.cshtml" />
+    <Content Include="Views\ContentManagement\Index.cshtml" />
+    <Content Include="Views\Content\Detail.cshtml" />
+    <Content Include="Views\EventCategoryManagement\Create.cshtml" />
+    <Content Include="Views\EventCategoryManagement\Edit.cshtml" />
+    <Content Include="Views\EventCategoryManagement\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Error\PageNotFound.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Enum.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTimeHidden.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\HtmlView.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\TinyMceHtmlEditor.cshtml" />
+    <Content Include="Views\EventManagement\Create.cshtml" />
+    <Content Include="Views\EventManagement\Details.cshtml" />
+    <Content Include="Views\EventManagement\Edit.cshtml" />
+    <Content Include="Views\EventManagement\Index.cshtml" />
+    <Content Include="Views\UserManagement\Create.cshtml" />
+    <Content Include="Views\UserManagement\Edit.cshtml" />
+    <Content Include="Views\UserManagement\Index.cshtml" />
+    <Content Include="Views\SettingManagement\Index.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\Shared\_Image.cshtml" />
+    <Content Include="Views\Event\Detail.cshtml" />
+    <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
+    <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
+    <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
+    <None Include="_bin_deployableAssemblies\x86\sqlceer40EN.dll" />
+    <None Include="_bin_deployableAssemblies\x86\sqlcecompact40.dll" />
+    <None Include="_bin_deployableAssemblies\x86\sqlceca40.dll" />
+    <None Include="_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\README_ENU.txt" />
+    <None Include="_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\msvcr90.dll" />
+    <None Include="_bin_deployableAssemblies\amd64\sqlcese40.dll" />
+    <None Include="_bin_deployableAssemblies\amd64\sqlceqp40.dll" />
+    <None Include="_bin_deployableAssemblies\amd64\sqlceme40.dll" />
+    <None Include="_bin_deployableAssemblies\amd64\sqlceer40EN.dll" />
+    <None Include="_bin_deployableAssemblies\amd64\sqlcecompact40.dll" />
+    <None Include="_bin_deployableAssemblies\amd64\sqlceca40.dll" />
+    <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\README_ENU.txt" />
+    <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\msvcr90.dll" />
+    <None Include="_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Content\Plugins\FileMan\asp_net\RoxyFilemanHandler.ashx.cs">
+      <DependentUpon>RoxyFilemanHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ContentCategoryManagementController.cs" />
+    <Compile Include="Controllers\ContentCategoryController.cs" />
+    <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Controllers\ContentManagementController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\EventCategoryManagementController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\EventManagementController.cs" />
+    <Compile Include="Controllers\GeneralController.cs" />
+    <Compile Include="Controllers\SettingManagementController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserManagementController.cs" />
+    <Compile Include="Core\AdvancedController.cs" />
+    <Compile Include="Core\DatabaseFactory.cs" />
+    <Compile Include="Core\DateAndTimeModelBinder.cs" />
+    <Compile Include="Core\EntityExtensions.cs" />
+    <Compile Include="Core\EntityImageFormat.cs" />
+    <Compile Include="Core\EnumerableExtensions.cs" />
+    <Compile Include="Core\GeneralExtensions.cs" />
+    <Compile Include="Core\HtmlExtensions.cs" />
+    <Compile Include="Core\PagedCollection.cs" />
+    <Compile Include="Core\RoutingFactory.cs" />
+    <Compile Include="Core\SettingFactory.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\BaseEntity.cs" />
+    <Compile Include="Models\BaseRoutableEntity.cs" />
+    <Compile Include="Models\Content.cs" />
+    <Compile Include="Models\ContentCategory.cs" />
+    <Compile Include="Models\DatabaseContext.cs" />
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\EventCategory.cs" />
+    <Compile Include="Models\Setting.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\LoginModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\EntityImages\" />
+    <Folder Include="Content\Plugins\FileMan\tmp\" />
+    <Folder Include="Content\Uploads\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>14074</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:5624/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

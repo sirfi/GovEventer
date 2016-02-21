@@ -1,0 +1,14 @@
+﻿@model DateTime?
+@{
+    if (Model != null)
+    {
+        var value = Model.GetValueOrDefault(DateTime.Now);
+        @Html.Hidden("Year", value.Year)
+        @Html.Hidden("Month", value.Month)
+        @Html.Hidden("Day", value.Day)
+        @Html.Hidden("Hour", value.Hour)
+        @Html.Hidden("Minute", value.Minute)
+        @Html.Hidden("Second", value.Second)
+        @Html.Hidden("Millisecond", value.Millisecond)
+    }
+}

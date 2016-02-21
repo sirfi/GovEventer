@@ -1,0 +1,13 @@
+﻿@model Event
+
+@{
+    ViewBag.Title = Model.Name + " - " + Model.Category.Name;
+}
+<div id="eventPage">
+    <h2>
+        @Model.Name <small>
+            <a href="~/@Model.Category.Slug">@Model.Category.Name</a>
+        </small>
+    </h2>
+    @Html.Raw(Model.Description)
+</div>
